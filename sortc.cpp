@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXX = int(1e6);
+const int MAXX = 1e6;
 
 int main() {
     FILE *fp, *fo;
