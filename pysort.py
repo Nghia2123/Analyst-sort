@@ -12,3 +12,4 @@ for i in range(10):
     fo.write(str(elapse_time)+'\n')
 
 fi.close()
+fo.close()
