@@ -8,14 +8,14 @@ int main() {
     fp = freopen("test.inp", "r", stdin);
     fo = freopen("sortc.out", "w", stdout);
     int t = 10;
+    float *a = new float[MAXX];
     while (t--) {
-        vector<double> a(MAXX);
         for (int i=0; i<MAXX; i++)
             cin >> a[i];
         clock_t start, end;
         double time_used;
         start = clock();
-        sort(a.begin(), a.end());
+        sort(a, a+MAXX);
         end = clock();
         time_used = double(end-start)/CLOCKS_PER_SEC;   
         cout << time_used*1000 << '\n';
@@ -27,6 +27,7 @@ int main() {
             }
         cout << check << endl;*/
     }
+    delete[] a;
     fclose(fp);
     fclose(fo);
 }

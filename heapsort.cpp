@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXX = int(1e6);
+const int MAXX = 1e6;
 
-void heapify(vector<double> &a, int n, int root) {
+void heapify(float a[], int n, int root) {
     int largest = root;
 
     int left_child = 2*root + 1;
@@ -21,12 +21,12 @@ void heapify(vector<double> &a, int n, int root) {
     }
 }   
 
-void build_maxheap(vector<double> &a, int n) {
+void build_maxheap(float a[], int n) {
     for (int i = n/2-1; i>=0; i--)
         heapify(a, n, i);
 }
 
-void heapsort(vector<double> &a, int n) {
+void heapsort(float a[], int n) {
     build_maxheap(a, n);
 
     for (int i = n-1; i>=1; i--) {
@@ -40,8 +40,8 @@ int main() {
     fp = freopen("test.inp", "r", stdin);
     fo = freopen("heap.out", "w", stdout);
     int t = 10;
+    float *a = new float[MAXX];
     while (t--) {
-        vector<double> a(MAXX);
         for (int i=0; i<MAXX; i++)
             cin >> a[i];
         clock_t start, end;
@@ -59,6 +59,7 @@ int main() {
         //     }
         // cout << check << endl;
     }
+    delete[] a;
     fclose(fp);
     fclose(fo);
 }

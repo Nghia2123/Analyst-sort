@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXX = int(1e6);
+const int MAXX = 1e6;
 
-int partition(vector<double> &a, int low, int high) {
+int partition(float a[], int low, int high) {
     double pivot = a[high];
     
     int i = low-1;
@@ -16,14 +16,14 @@ int partition(vector<double> &a, int low, int high) {
     return i+1;
 }
 
-int partition_r(vector<double> &a, int low, int high) {
+int partition_r(float a[], int low, int high) {
     srand(time(NULL));
     int pivot = low + rand() % (high-low);
     swap(a[pivot], a[high]);
     return partition(a, low, high);
 }
 
-void quicksort(vector<double> &a, int low, int high) {
+void quicksort(float a[], int low, int high) {
     if (low < high) {
         int pivot = partition_r(a, low, high);
         quicksort(a, low, pivot-1);
@@ -36,8 +36,8 @@ int main() {
     fp = freopen("test.inp", "r", stdin);
     fo = freopen("quick.out", "w", stdout);
     int t = 10;
+     float *a = new float[MAXX];
     while (t--) {
-        vector<double> a(MAXX);
         for (int i=0; i<MAXX; i++)
             cin >> a[i];
         clock_t start, end;
@@ -55,6 +55,7 @@ int main() {
             }
         cout << check << endl;*/
     }
+    delete[] a;
     fclose(fp);
     fclose(fo);
 }

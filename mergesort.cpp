@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXX = int(1e6);
-
-void merge(vector<double> &a, int left, int mid, int right) {
+const int MAXX = 1e6;
+float *al = new float[MAXX/2+1];
+float *ar = new float[MAXX/2+1];
+void merge(float a[], int left, int mid, int right) {
     int n1 = mid-left+1;
     int n2 = right-mid;
-    vector<double> al(n1);
-    vector<double> ar(n2);
+    
     for (int i=0; i<n1; i++)
         al[i] = a[left+i];
 
@@ -30,7 +30,7 @@ void merge(vector<double> &a, int left, int mid, int right) {
         a[k++] = ar[j++];
 }
 
-void mergesort(vector<double> &a, int left, int right) {
+void mergesort(float a[], int left, int right) {
     if (left < right) {
         int mid = left + (right-left)/2;
         mergesort(a, left, mid);
@@ -44,8 +44,8 @@ int main() {
     fp = freopen("test.inp", "r", stdin);
     fo = freopen("merge.out", "w", stdout);
     int t = 10;
+    float *a = new float[MAXX];
     while (t--) {
-        vector<double> a(MAXX);
         for (int i=0; i<MAXX; i++)
             cin >> a[i];
         clock_t start, end;
@@ -62,7 +62,11 @@ int main() {
                 break;
             }
         cout << check << endl;*/
+       
     }
+    delete[] a;
+    delete[] ar;
+    delete[] al;
     fclose(fp);
     fclose(fo);
 }
